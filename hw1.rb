@@ -1,15 +1,20 @@
 def squared_sum(a, b)
-  # Q1 CODE HERE
+  squared_sum = (a+b)**2
+  return squared_sum
 
 end
 
 def sort_array_plus_one(a)
-  # Q2 CODE HERE
+  a = a.sort
+  b = []
+  a.map { |e| b << (e+1)  } #put all element +1 in a to array b
+  return b
 
 end
 
 def combine_name(first_name, last_name)
-  # Q3 CODE HERE
+  name = first_name+ " " + last_name
+  return name
 
 end
 
@@ -48,5 +53,10 @@ def scrabble(word)
     y: 4,
     z: 10,
   }
-  # Q5 CODE HERE
-end
+    wordSymbol = word.split('').map { |i| i.to_sym } #split into separate characters
+                                                    #and convert to array of symbols
+    wordSymbol = wordSymbol.map! { |i| values[i] } #create an array of characters converted values
+    sum = wordSymbol.inject{|sum, n| sum + n}
+
+    return sum
+  end
